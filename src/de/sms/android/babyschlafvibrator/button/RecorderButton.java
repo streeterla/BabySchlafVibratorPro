@@ -1,13 +1,15 @@
-package de.sms.android.babyschlafvibrator;
+package de.sms.android.babyschlafvibrator.button;
 
 import java.io.IOException;
 
 import android.content.Context;
 import android.media.MediaPlayer;
 import android.media.MediaRecorder;
+import android.os.Environment;
 import android.util.AttributeSet;
 import android.util.Log;
 import android.widget.Button;
+import de.sms.android.babyschlafvibrator.R;
 
 
 /**
@@ -19,37 +21,40 @@ import android.widget.Button;
 public class RecorderButton extends Button
 {
 	/** for debugging */
-    protected static final String LOG_TAG = "RecorderButton";
+    private String LOG_TAG = "RecorderButton";
     
     /** storing location for record file */
-    protected static String mFileName = null;
+    private String mFileName = null;
 
-    /** recorder */
-    protected MediaRecorder mRecorder = null;
+	/** recorder */
+    private MediaRecorder mRecorder = null;
 
     /** player */
     protected MediaPlayer   mPlayer = null;
     
     /** context of the activity */
-    Context context;
+    protected Context context;
     
 
     //constructors
     public RecorderButton(Context context)
     {
 		super(context);
+        setRecordFile();
 		this.context = context;
 	}
-    
+
     public RecorderButton(Context context, AttributeSet attrs)
     {
         super(context, attrs);
+        setRecordFile();
         this.context = context;
     }
     
     public RecorderButton(Context context, AttributeSet attrs, int defStyle)
     {
     	super(context, attrs, defStyle);
+    	setRecordFile();
     	this.context = context;
     }
 
@@ -115,7 +120,7 @@ public class RecorderButton extends Button
     /**
      * method to start recording
      */
-    protected void startRecording() 
+    private void startRecording() 
     {
         mRecorder = new MediaRecorder();
         mRecorder.setAudioSource(MediaRecorder.AudioSource.MIC);
@@ -139,23 +144,30 @@ public class RecorderButton extends Button
     /**
      * method to stop recording
      */
-    protected void stopRecording()
+    private void stopRecording()
     {
         mRecorder.stop();
         mRecorder.release();
         mRecorder = null;
     }
-
+    
+    /**
+     * sets storage location
+     */
+	private void setRecordFile() {
+		mFileName = Environment.getExternalStorageDirectory().getAbsolutePath();
+        mFileName += "/babysleepbuzzer_ownvoice.3gp";
+	}
     
     //getters and setters
-	public static String getmFileName() 
+	public String getmFileName() 
 	{
 		return mFileName;
 	}
 
-	public static void setmFileName(String mFileName)
+	public void setmFileName(String mFileName)
 	{
-		RecorderButton.mFileName = mFileName;
+		this.mFileName = mFileName;
 	}
 
 	public MediaRecorder getmRecorder() 
@@ -177,9 +189,15 @@ public class RecorderButton extends Button
 	{
 		this.mPlayer = mPlayer;
 	}
-
-	public static String getLogTag()
-	{
+	
+    public String getLOG_TAG()
+    {
 		return LOG_TAG;
 	}
+
+	public void setLOG_TAG(String lOG_TAG) 
+	{
+		LOG_TAG = lOG_TAG;
+	}
+
 }

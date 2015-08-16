@@ -3,7 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
-    
+
     
     <LinearLayout 
 	    android:id="@+id/mainLayout"
@@ -16,6 +16,8 @@
 	    android:background="#000000"
 	    android:animateLayoutChanges="true"
 	    tools:context=".MainActivity"
+	    android:focusable="true"
+	    android:focusableInTouchMode="true"
 	    android:layout_gravity="center_vertical|center_horizontal"
 	    android:orientation="vertical">
     
@@ -73,6 +75,7 @@
 	            android:layout_height="wrap_content"
 	      	    android:layout_width="wrap_content" 
 	      	    android:textColor="#FFFFFF"
+	      	    android:background="?android:attr/selectableItemBackground"
 	      	    android:text="@string/start"/>
 	            
 	        <Button
@@ -80,6 +83,7 @@
 	            android:layout_height="wrap_content"
 	      	    android:layout_width="wrap_content" 
 	      	    android:textColor="#FFFFFF"
+	      	    android:background="?android:attr/selectableItemBackground"
 	      	    android:text="@string/stop"/>
 	        
 	        <Button
@@ -87,6 +91,7 @@
 	            android:layout_height="match_parent"
 	      	    android:layout_width="match_parent" 
 	      	    android:textColor="#FFFFFF"
+	      	    android:background="?android:attr/selectableItemBackground"
 	      	    android:text="@string/exit"/>
 	        
 	    </LinearLayout>

@@ -16,6 +16,8 @@
     tools:context=".MainActivity"
     android:layout_gravity="center_vertical|center_horizontal"
     android:animateLayoutChanges="true"
+	android:focusable="true"
+	android:focusableInTouchMode="true"
     android:orientation="vertical" >
 	    
 	    <TextView 
@@ -80,6 +82,7 @@
 		            android:textColor="#FFFFFF"
 		            android:layout_height="wrap_content"
 		      	    android:layout_width="wrap_content" 
+		      	    android:background="?android:attr/selectableItemBackground"
 		      	    android:text="@string/start"/>
 		            
 		        <Button
@@ -87,6 +90,7 @@
 		            android:textColor="#FFFFFF"
 		            android:layout_height="wrap_content"
 		      	    android:layout_width="wrap_content" 
+		      	    android:background="?android:attr/selectableItemBackground"
 		      	    android:text="@string/stop"/>
 		        
 		        <Button
@@ -94,6 +98,7 @@
 		            android:textColor="#FFFFFF"
 		            android:layout_height="match_parent"
 		      	    android:layout_width="match_parent" 
+		      	    android:background="?android:attr/selectableItemBackground"
 		      	    android:text="@string/exit"/>
 		        
 			    <!-- ProgressBar 

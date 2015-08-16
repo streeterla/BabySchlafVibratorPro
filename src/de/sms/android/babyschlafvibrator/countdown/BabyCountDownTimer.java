@@ -17,19 +17,19 @@ import android.widget.Toast;
 public class BabyCountDownTimer extends CountDownTimer 
 {
 	/** countdown */
-	TextView countdown;
+	private TextView countdown;
 	/** toast */
-	Toast toast;
+	private Toast toast;
 	/** context */
-	Context context;
+	private Context context;
 	/** string to show good night */
-	CharSequence sGoodNight;
+	private CharSequence sGoodNight;
 	/** string to show the countdown */
-	CharSequence sCountdown;
+	private CharSequence sCountdown;
 	/** player for own voice */
-	MediaPlayer mPlayer;
+	private MediaPlayer mPlayer;
 	/** progress bar to show duration */
-	ProgressBar mProgress;
+	private ProgressBar mProgress;
 	
 	
 	/**

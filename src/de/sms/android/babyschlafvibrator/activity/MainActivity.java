@@ -1,12 +1,10 @@
-package de.sms.android.babyschlafvibrator;
+package de.sms.android.babyschlafvibrator.activity;
 
 import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.media.MediaPlayer;
-import android.net.ConnectivityManager;
-import android.net.NetworkInfo;
 import android.os.Bundle;
 import android.os.Environment;
 import android.os.Vibrator;
@@ -20,11 +18,10 @@ import android.view.View;
 import android.view.View.OnClickListener;
 import android.view.WindowManager;
 import android.widget.Button;
-import android.widget.LinearLayout;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
-
+import de.sms.android.babyschlafvibrator.R;
 import de.sms.android.babyschlafvibrator.countdown.BabyCountDownTimer;
 import de.sms.android.babyschlafvibrator.countdown.CountdownPicker;
 
@@ -68,7 +65,7 @@ public class MainActivity extends Activity
 	/** progress bar */
 	private ProgressBar mProgress;
 	/** timer for own voice */
-	BabyCountDownTimer babyTimer;
+	private BabyCountDownTimer babyTimer;
 	
 	
 	@Override
@@ -88,7 +85,7 @@ public class MainActivity extends Activity
 		minutePicker = (CountdownPicker) findViewById(R.id.minute_picker);
 		secondPicker = (CountdownPicker) findViewById(R.id.second_picker);
 		
-		//coundown
+		//countdown
 		countdown = (TextView) findViewById(R.id.countdown);
 		countdown.setVisibility(TextView.GONE);
 		
@@ -129,10 +126,6 @@ public class MainActivity extends Activity
 				 }
 				 else
 				 {
-//					 try
-//					 {
-
-					 	
 						 toast = Toast.makeText(getApplicationContext(), getText(R.string.own_voice), Toast.LENGTH_SHORT);
 						 toast.show();
 
@@ -143,11 +136,6 @@ public class MainActivity extends Activity
 			            	 mProgress.setMax(totalSeconds);
 			            	 mProgress.setProgress(totalSeconds);
 			             }
-//					 }
-//					 catch(IOException ioe)
-//					 {
-//						 Log.e("mplayer", ioe.getMessage());
-//					 }
 				 }
 			}
 		});
@@ -290,7 +278,9 @@ public class MainActivity extends Activity
     {
     	final int rotation = ((WindowManager) context.getSystemService(Context.WINDOW_SERVICE)).getDefaultDisplay().getRotation();
         if(rotation == Surface.ROTATION_90 || rotation == Surface.ROTATION_270)  
+        {
         	return true;
+        }
         return false;
     }
 }

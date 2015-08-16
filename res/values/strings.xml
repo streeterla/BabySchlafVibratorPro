@@ -22,4 +22,6 @@
 	<string name="own_voice">Own voice</string>
 	<string name="error_own_voice">Error recording own voice</string>
 	<string name="good_night">Good night</string>
+	<string name="plus">+</string>
+	<string name="minus">-</string>
 </resources>

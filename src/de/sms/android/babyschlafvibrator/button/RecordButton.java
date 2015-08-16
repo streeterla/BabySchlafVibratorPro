@@ -1,9 +1,9 @@
-package de.sms.android.babyschlafvibrator;
+package de.sms.android.babyschlafvibrator.button;
 
 import android.content.Context;
-import android.graphics.Color;
 import android.util.AttributeSet;
 import android.view.View;
+import de.sms.android.babyschlafvibrator.R;
 
 
 /**
@@ -18,7 +18,7 @@ public class RecordButton extends RecorderButton
     boolean mStartRecording = true;
 
     /** click listener */
-    OnClickListener clicker = new OnClickListener()
+    private OnClickListener clicker = new OnClickListener()
     {
         public void onClick(View v)
         {
@@ -43,7 +43,6 @@ public class RecordButton extends RecorderButton
         setText(context.getString(R.string.start_recording));
         setText(context.getString(R.string.start_recording));
         setOnClickListener(clicker);
-        setTextColor(Color.WHITE);
     }
     
     
@@ -52,7 +51,6 @@ public class RecordButton extends RecorderButton
         super(context, attrs);
         setText(context.getString(R.string.start_recording));
         setOnClickListener(clicker);
-        setTextColor(Color.WHITE);
     }
     
     
@@ -61,7 +59,6 @@ public class RecordButton extends RecorderButton
     	super(context, attrs, defStyle);
     	setText(context.getString(R.string.start_recording));
         setOnClickListener(clicker);
-        setTextColor(Color.WHITE);
     }
 
 }
