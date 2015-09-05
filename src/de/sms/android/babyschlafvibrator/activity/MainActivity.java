@@ -148,8 +148,11 @@ public class MainActivity extends Activity
 		        countdown.setVisibility(TextView.GONE);
 		        toast = Toast.makeText(getApplicationContext(), getText(R.string.good_night), Toast.LENGTH_LONG);
 		        toast.show();
-		        babyTimer.onFinish();
-		        if(mProgress != null)
+				if(babyTimer != null)
+				{
+					babyTimer.onFinish();
+				}
+				if(mProgress != null)
 	        	{
 		        	mProgress.setProgress(0);
 	        	}
@@ -161,7 +164,10 @@ public class MainActivity extends Activity
 			@Override
 			public void onClick(View v) 
 			{
-				babyTimer.onFinish();
+				if(babyTimer != null)
+				{
+					babyTimer.onFinish();
+				}
 				finish();
 			}
 		});
